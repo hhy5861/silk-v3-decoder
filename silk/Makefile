@@ -121,7 +121,7 @@ encoder$(EXESUFFIX): $(ENCODER_OBJS)
 	$(LINK.o.cmdline)
 
 decoder$(EXESUFFIX): $(DECODER_OBJS)
-	$(LINK.o.cmdline)
+	$(LINK.o.cmdline) -w
 
 signalcompare$(EXESUFFIX): $(SIGNALCMP_OBJS)
 	$(LINK.o.cmdline)
