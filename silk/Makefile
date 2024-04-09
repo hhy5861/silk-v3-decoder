@@ -59,7 +59,7 @@ COMPILE.c.cmdline   = $(CC) -c $(CFLAGS) $(ADDED_CFLAGS) -o $@ $<
 COMPILE.S.cmdline   = $(CC) -c $(CFLAGS) $(ADDED_CFLAGS) -o $@ $<
 COMPILE.cpp.cmdline = $(CXX) -c $(CFLAGS) $(ADDED_CFLAGS) -o $@ $<
 LINK.o              = $(CXX) $(LDPREFLAGS) $(LDFLAGS)
-LINK.o.cmdline      = $(LINK.o) $^ $(LDLIBS) -o $@$(EXESUFFIX)
+LINK.o.cmdline      = $(LINK.o) $^ $(LDLIBS) -o $@$(EXESUFFIX) -w
 ARCHIVE.cmdline     = $(AR) $(ARFLAGS) $@ $^ && $(RANLIB) $@
 
 %$(OBJSUFFIX):%.c
@@ -121,7 +121,7 @@ encoder$(EXESUFFIX): $(ENCODER_OBJS)
 	$(LINK.o.cmdline)
 
 decoder$(EXESUFFIX): $(DECODER_OBJS)
-	$(LINK.o.cmdline) -w
+	$(LINK.o.cmdline)
 
 signalcompare$(EXESUFFIX): $(SIGNALCMP_OBJS)
 	$(LINK.o.cmdline)
